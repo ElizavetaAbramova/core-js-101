@@ -10,49 +10,25 @@
 
 /**
  * Returns an area of a rectangle given by width and height.
- *
- * @param {number} width
- * @param {number} height
- * @return {number}
- *
- * @example:
- *   5, 10 => 50
- *   5, 5  => 25
  */
-function getRectangleArea(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleArea(width, height) {
+  return width * height;
 }
 
 
 /**
  * Returns a circumference of circle given by radius.
- *
- * @param {number} radius
- * @return {number}
- *
- * @example:
- *   5    => 31.41592653589793
- *   3.14 => 19.729201864543903
- *   0    => 0
  */
-function getCircleCircumference(/* radius */) {
-  throw new Error('Not implemented');
+function getCircleCircumference(radius) {
+  return 2 * Math.PI
+  * radius;
 }
 
 /**
  * Returns an average of two given numbers.
- *
- * @param {number} value1
- * @param {number} value2
- * @return {number}
- *
- * @example:
- *   5, 5  => 5
- *  10, 0  => 5
- *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  return Math.round((value1 / 2 + value2 / 2));
 }
 
 /**
@@ -115,34 +91,17 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
 
 /**
  * Returns a last digit of a integer number.
- *
- * @param {number} value
- * @return {number}
- *
- * @example:
- *   100     => 0
- *    37     => 7
- *     5     => 5
- *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+function getLastDigit(num) {
+  return num % 10;
 }
 
 
 /**
  * Returns a number by given string representation.
- *
- * @param {string} value
- * @return {number}
- *
- * @example:
- *    '100'     => 100
- *     '37'     => 37
- * '-525.5'     => -525.5
  */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
+function parseNumberFromString(num) {
+  return num.toString();
 }
 
 /**
@@ -201,7 +160,7 @@ function roundToPowerOfTen(/* num, pow */) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
+function isPrime(/* */) {
   throw new Error('Not implemented');
 }
 
