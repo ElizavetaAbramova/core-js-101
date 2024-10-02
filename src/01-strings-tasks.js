@@ -91,66 +91,55 @@ function extractEmails(str) {
 /**
  * Returns the string representation of rectangle with specified width and height
  * using pseudograhic chars
- *
- * @param {number} width
- * @param {number} height
- * @return {string}
- *
- * @example
- *
- *            '┌────┐\n'+
- *  (6,4) =>  '│    │\n'+
- *            '│    │\n'+
- *            '└────┘\n'
- *
- *  (2,2) =>  '┌┐\n'+
- *            '└┘\n'
- *
- *             '┌──────────┐\n'+
- *  (12,3) =>  '│          │\n'+
- *             '└──────────┘\n'
- *
  */
-function getRectangleString(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleString(width, height) {
+  let result = '';
+  const firstStr = `${'┌'}${'─'.repeat(width - 2)}${'┐'}${'\n'}`;
+  let middleStr = `${'│'}${' '.repeat(width - 2)}${'│'}${'\n'}`;
+  middleStr = middleStr.repeat(height - 2);
+  const lastStr = `${'└'}${'─'.repeat(width - 2)}${'┘'}${'\n'}`;
+  result = firstStr + middleStr + lastStr;
+
+  return result;
 }
 
 
 /**
  * Encode specified string with ROT13 cipher
- * See details:  https://en.wikipedia.org/wiki/ROT13
- *
- * @param {string} str
- * @return {string}
- *
- * @example
- *
- *   'hello' => 'uryyb'
- *   'Why did the chicken cross the road?' => 'Jul qvq gur puvpxra pebff gur ebnq?'
- *   'Gb trg gb gur bgure fvqr!' => 'To get to the other side!'
- *   'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
- *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
- *
  */
-function encodeToRot13(/* str */) {
-  throw new Error('Not implemented');
+
+
+function encodeToRot13(str) {
+  let decodedWord = '';
+  for (let i = 0; i < str.length; i += 1) {
+    const code = str.charCodeAt(i);
+    // decodedWord = `${decodedWord}${String.fromCharCode(str.charCodeAt(i) + 13)}`;
+    if (code > ('A'.charCodeAt(0) + 'Z'.charCodeAt(0)) / 2 && code <= 'Z'.charCodeAt(0)) {
+      decodedWord = `${decodedWord}${String.fromCharCode(code - 13)}`;
+    } else if (code < ('A'.charCodeAt(0) + 'Z'.charCodeAt(0)) / 2 && code >= 'A'.charCodeAt(0)) {
+      decodedWord = `${decodedWord}${String.fromCharCode(code + 13)}`;
+    } else if (code > ('a'.charCodeAt(0) + 'z'.charCodeAt(0)) / 2 && code <= 'z'.charCodeAt(0)) {
+      decodedWord = `${decodedWord}${String.fromCharCode(code - 13)}`;
+    } else if (code < ('a'.charCodeAt(0) + 'z'.charCodeAt(0)) / 2 && code >= 'a'.charCodeAt(0)) {
+      decodedWord = `${decodedWord}${String.fromCharCode(code + 13)}`;
+    } else {
+      decodedWord = `${decodedWord}${str[i]}`;
+    }
+  }
+  return decodedWord;
 }
 
 /**
  * Returns true if the value is string; otherwise false.
- * @param {string} value
- * @return {boolean}
- *
- * @example
- *   isString() => false
- *   isString(null) => false
- *   isString([]) => false
- *   isString({}) => false
- *   isString('test') => true
- *   isString(new String('test')) => true
  */
-function isString(/* str */) {
-  throw new Error('Not implemented');
+function isString(str) {
+  let result;
+  if (typeof str === 'string' || str instanceof String) {
+    result = true;
+  } else {
+    result = false;
+  }
+  return result;
 }
 
 
