@@ -108,75 +108,43 @@ function getTail(arr, n) {
 
 /**
  * Returns CSV representation of two-dimensional numeric array.
- * https://en.wikipedia.org/wiki/Comma-separated_values
- *
- * @param {array} arr
- * @return {string}
- *
- * @example
- *    [
- *       [  0, 1, 2, 3, 4 ],
- *       [ 10,11,12,13,14 ],
- *       [ 20,21,22,23,24 ],
- *       [ 30,31,32,33,34 ]
- *    ]
- *           =>
- *     '0,1,2,3,4\n'
- *    +'10,11,12,13,14\n'
- *    +'20,21,22,23,24\n'
- *    +'30,31,32,33,34'
  */
-function toCsvText(/* arr */) {
-  throw new Error('Not implemented');
+function toCsvText(arr) {
+  const newArray = arr.map((elem) => {
+    if (arr.indexOf(elem) === arr.length - 1) {
+      return `${elem.join()}`;
+    }
+    return `${elem.join()}\n`;
+  });
+  const newArray2 = newArray.join('');
+  return newArray2;
 }
 
 /**
  * Transforms the numeric array into the according array of squares:
- *   f(x) = x * x
- *
- * @param {array} arr
- * @return {array}
- *
- * @example
- *   [ 0, 1, 2, 3, 4, 5 ] => [ 0, 1, 4, 9, 16, 25 ]
- *   [ 10, 100, -1 ]      => [ 100, 10000, 1 ]
  */
-function toArrayOfSquares(/* arr */) {
-  throw new Error('Not implemented');
+function toArrayOfSquares(arr) {
+  return arr.map((num) => num * num);
 }
 
 
 /**
  * Transforms the numeric array to the according moving sum array:
- *     f[n] = x[0] + x[1] + x[2] +...+ x[n]
- *  or f[n] = f[n-1] + x[n]
- *
- * @param {array} arr
- * @return {array}
- *
- * Example :
- *   [ 1, 1, 1, 1, 1 ]        => [ 1, 2, 3, 4, 5 ]
- *   [ 10, -10, 10, -10, 10 ] => [ 10, 0, 10, 0, 10 ]
- *   [ 0, 0, 0, 0, 0]         => [ 0, 0, 0, 0, 0]
- *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
-function getMovingSum(/* arr */) {
-  throw new Error('Not implemented');
+function getMovingSum(arr) {
+  let prevNumber = 0;
+  const newArr = arr.map((num) => {
+    prevNumber = num + prevNumber;
+    return prevNumber;
+  });
+  return newArr;
 }
 
 /**
  * Returns every second item from the specified array:
- *
- * @param {array} arr
- * @return {array}
- *
- * Example :
- * [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 2, 4, 6, 8, 10 ]
- * [ 'a', 'b', 'c' , null ]  => [ "b", null ]
- * [ "a" ] => []
  */
-function getSecondItems(/* arr */) {
-  throw new Error('Not implemented');
+function getSecondItems(arr) {
+  return arr.filter((num) => arr.indexOf(num) % 2 !== 0);
 }
 
 
