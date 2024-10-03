@@ -107,8 +107,6 @@ function getRectangleString(width, height) {
 /**
  * Encode specified string with ROT13 cipher
  */
-
-
 function encodeToRot13(str) {
   let decodedWord = '';
   for (let i = 0; i < str.length; i += 1) {
