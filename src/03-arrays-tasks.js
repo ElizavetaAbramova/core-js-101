@@ -288,6 +288,7 @@ function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]
  */
 function getIdentityMatrix(/* n */) {
+  // return Array(n).fill(Array(n).fill());
   throw new Error('Not implemented');
 }
 
@@ -403,8 +404,15 @@ function getElementByIndexes(/* arr, indexes */) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8 ]   =>  [ 5, 6, 7, 8, 1, 2, 3, 4 ]
  *
  */
-function swapHeadAndTail(/* arr */) {
-  throw new Error('Not implemented');
+function swapHeadAndTail(arr) {
+  const head = arr.slice(0, Math.floor(arr.length / 2));
+  const tail = arr.slice(Math.round(arr.length / 2), arr.length);
+  let middle = [];
+  if (arr.length % 2 !== 0) {
+    middle = arr[Math.floor(arr.length / 2)];
+  }
+  const reversedArr = tail.concat(middle, head);
+  return reversedArr;
 }
 
 
